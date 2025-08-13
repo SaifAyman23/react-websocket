@@ -1,7 +1,4 @@
-import { ReceivedMessage } from "./useChatWebSocket";
 import { useEffect, useState } from "react";
-
-
 
 export default function useWebSocket({log, roomID }: {log: boolean, roomID: number}){
   const [ws, setWs] = useState<WebSocket | null>(null);
@@ -19,7 +16,7 @@ export default function useWebSocket({log, roomID }: {log: boolean, roomID: numb
         return;
       }
   
-      socket = new WebSocket(`ws://138.68.187.187:8000/ws/chat/${roomID}/?token=${localStorage.getItem('token')}`);
+      socket = new WebSocket(`ws://exampleURL/ws/chat/${roomID}/`);
   
       socket.onopen = () => {
         log && console.log("WebSocket Connected");
